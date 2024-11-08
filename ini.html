@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calcular Volumen y Peso</title>
+</head>
+<body>
+    <div style="display: flex; justify-content: center; align-items: center; ">
+        <img src="PlasticosFenix.png" style="width: 180px;" alt="logo">
+    </div>
+    <h1> Cubicaje Vehiculos FENIX</h1>
+
+    <!-- Área de texto para pegar productos -->
+     <div class="input-group" style="margin-bottom: 20px; background-image: url('back.png');" >
+        <textarea id="pedido" rows="15" placeholder="Pega productos aquí (ej: PF101,12)"></textarea>
+     </div>
+    
+
+    <h2>Resultados Totales</h2>
+<div id="resultado-totales">
+    <!-- <p>Volumen Total (m³): <span id="volumen-total"></span></p> -->
+     <p style="display: none;">Volumen Total (m³): <span id="volumen-total"></span></p>
+    <!-- <p>Volumen Total Canastilla (m³): <span id="volumen-total-canastilla"></span></p> -->
+    <p style="display: none;">Volumen Total Canastilla (m³): <span id="volumen-total-canastilla"></span></p>
+
+    <p style="display: none;">Diferencia de Volumen (m³): <span id="diferencia-volumen"></span></p> 
+
+    <p>Peso Total (kg): <span id="peso-total"></span></p>
+    <p>Volumen Total Bolsa: <span id="volumen-total-bolsa"></span></p>
+    <p>Volumen Total Cajas: <span id="volumen-total-cajas"></span></p>
+    <p>Consolidado de Volumen  cajas + bolsas: <span id="volumen-consolidado-cajas-bolsas"></span></p>
+</div>
+    <br>
+    <!-- Botón para procesar datos -->
+    <button onclick="procesarDatos()">Calcular</button>
+
+    <!--boton para exportar a excel-->
+
+    <button id="exportar-excel" onclick="exportarExcel()">Exportar a Excel</button>
+
+    <!-- Boton para reinicia-->
+    <button id="reiniciar" onclick="reiniciar()">Reiniciar</button>
+   
+
+    <!-- Resultados Individuales -->
+    <div id="resultados">
+        <h2>Resultados Individuales</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Empaque</th>                  
+                    <th>Unidad Empaque </th>
+                    <th>Peso Unidad (Grs)</th>
+                    <th>Empaque Canasta</th>
+                    <th>F. Vol. Unidad </th>
+                     <!--  el volumen de la canastilla  sedeve de sacar de una coonstantes el cual ya esta defuinidad en 2.89metros cubicos
+                        y la formuula seria dividir 2.89 entre el valor dato unidadd empauqe -->
+                        <th>F. Vol. Canastilla(2.89m³)</th>
+                    <th>Cantidad USD</th>
+                    <th>F.Vol. Total (m³)</th>
+                    <th>F. Arrume</th>                   
+                    <th>Peso Total (kg)</th>
+                    <th>Cubicaje (Bolsa)</th>
+                    <th>Cubicaje (Caja)</th>
+          
+
+                    
+                </tr>
+            </thead>
+            <tbody id="resultado-individuales">
+                <!-- Aquí se llenarán los resultados individuales -->
+            </tbody>
+        </table>
+
+        <!-- Análisis de Camiones -->
+        <h2>Análisis de Camiones</h2>
+        <table id="tabla-camiones">
+            <thead>
+                <tr>
+                    <th>Camión</th>
+                    <th>Capacidad Volumen (m³) Camiones</th>
+                    <th>Capacidad Peso (kg) Camiones</th>
+                    <th>Volumen Utilizado (%) Mercancia</th>
+                    <th>Peso Utilizado (%) Mercancia</th>
+                    <th>Volumen Usado (m³)</th> 
+                    <th>Volumen Faltante</th>               
+                    <th>¿Cabe?</th>
+                    
+                </tr>
+            </thead>
+            <tbody id="resultado-camiones">
+                <!-- Aquí se llenarán los resultados de camiones -->
+            </tbody>
+        </table>
+
+        <!-- Resultado Grupal (Sección adicional si es necesario) -->
+        <div id="resultado-grupal">
+            <!-- Sección para resultados grupales si fuera necesaria -->
+        </div>
+
+
+    
+    </div>
+
+    <!-- Enlace al archivo de JavaScript para la hoja de cálculo   -->
+    <script src="logica.js"></script>
+
+    <!-- Cargar archivo de hoja de cálculo -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+
+
+
+    <footer>
+        <img src="PlasticosFenix.png" style="width: 120px;" alt="logo">
+
+        <p>UBICACIÓN <br>
+            Kilómetro 10 vía Armenia - La Tebaida, Quindío <br>
+            TELÉFONO
+            (6) 731 3574 Ext 705 <br>
+            
+            EMAIL
+            plastifenix@gmail.com.</p>
+            <p>&copy; 2024 FENIX. Todos los derechos reservados.</p>
+           
+    </footer>
+    
+</body>
+</html>
