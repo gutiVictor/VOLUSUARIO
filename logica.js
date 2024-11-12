@@ -7,10 +7,15 @@ document.addEventListener('DOMContentLoaded', function() {
       const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
 
-      if (username === 'admin' && password === '123') {
+      if ((username === 'admin' && password === '123') 
+        || (username === 'usuario' && password === 'fenix')
+        || (username === 'laura' && password === 'fenix')
+        || (username === 'zora' && password === 'fenix')) {
         window.location.href = 'ini.html';
       } else {
-        document.getElementById('error-message').style.display = 'block';
+
+        window.location.href = 'https://btoys.co/?gad_source=1&gclid=Cj0KCQiAire5BhCNARIsAM53K1ipYAmP0vU6F-iWy2d41IwxteGp30wQ73l97GnyQrnF8slIk5I7ZHIaAmzSEALw_wcB';
+        /* document.getElementById('error-message').style.display = 'block'; */
       }
     });
   }
