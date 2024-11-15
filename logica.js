@@ -7,11 +7,33 @@ document.addEventListener('DOMContentLoaded', function() {
       const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
 
-      if ((username === 'admin' && password === '123') 
-        || (username === 'usuario' && password === 'fenix')
-        || (username === 'laura' && password === 'fenix')
-        || (username === 'zora' && password === 'fenix')) {
-        window.location.href = 'ini.html';
+      // Usuarios y contraseñas válidos
+      const usuariosValidos = [
+        { nombre: 'Admin', password: '1024' },
+        { nombre: 'Comex', password: '2324' },
+        { nombre: 'Logistica', password: '1024' },
+        { nombre: 'Comercial', password: '0424' }
+      ];
+
+      // Buscar si las credenciales son correctas
+      const usuario = usuariosValidos.find(user => user.nombre === username && user.password === password);
+
+      if (usuario) {
+        // Mostrar mensaje de bienvenida
+        const bienvenidaDiv = document.getElementById('bienvenida');
+        const mensajeBienvenida = document.getElementById('mensaje-bienvenida');
+        mensajeBienvenida.textContent = `¡Bienvenida ${usuario.nombre}, estoy listo para empezar a trabajar!`;
+
+        bienvenidaDiv.style.display = 'block';  // Mostrar el mensaje de bienvenida
+        document.querySelector('.login-container').style.display = 'none';  // Ocultar el formulario de login
+        
+        
+        
+
+        // Esperar 3 segundos (3000 ms) y redirigir a la página ini.html
+        setTimeout(function() {
+          window.location.href = 'ini.html';  // Redirigir a la página principal de la aplicación
+        }, 3000);
       } else {
 
         window.location.href = 'https://btoys.co/?gad_source=1&gclid=Cj0KCQiAire5BhCNARIsAM53K1ipYAmP0vU6F-iWy2d41IwxteGp30wQ73l97GnyQrnF8slIk5I7ZHIaAmzSEALw_wcB';
